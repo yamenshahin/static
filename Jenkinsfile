@@ -1,4 +1,4 @@
-options(
+properties(
     [
         pipelineTriggers(
             [
