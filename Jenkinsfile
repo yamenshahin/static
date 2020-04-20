@@ -6,12 +6,12 @@ pipeline {
                 sh 'tidy -q -e *.html'
             }
         }
-    }
-    stage('Upload to AWS') {
-        steps {
-            withAWS(region:'us-east-1', credentials:'aws-static') {
-                sh 'echo "Uploading content with AWS creds"'
-                s3Upload(pathStyleAccessEnabled: true, payloadSigningEnabled: true, file:'index.html', bucket:'hellovans-files')
+        stage('Upload to AWS') {
+            steps {
+                withAWS(region:'us-east-1', credentials:'aws-static') {
+                    sh 'echo "Uploading content with AWS creds"'
+                    s3Upload(pathStyleAccessEnabled: true, payloadSigningEnabled: true, file:'index.html', bucket:'hellovans-files')
+                }
             }
         }
     }
