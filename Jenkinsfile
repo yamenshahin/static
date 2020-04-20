@@ -1,14 +1,14 @@
+properties(
+    [
+        pipelineTriggers(
+            [
+                githubPush()
+            ]
+        )
+    ]
+)
 pipeline {
     agent any
-    properties(
-        [
-            pipelineTriggers(
-                [
-                    githubPush()
-                ]
-            )
-        ]
-    )
     stages {
         stage('Lint HTML') {
             steps {
