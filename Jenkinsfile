@@ -14,5 +14,10 @@ pipeline {
                   }
               }
          }
+         stage('Check content is available') {
+              steps {
+                sh 'curl -sf "https://hellovans-files.s3.eu-west-2.amazonaws.com/index.html" >/dev/null'
+              }
+         }
      }
 }
